@@ -92,20 +92,6 @@ QuoteCraft/
 └── README.md            # 文档 / Docs
 ```
 
-## 贡献规范 / Contributing
-### 流程 / Flow
-1. Fork 仓库 / Fork repo
-2. 创建分支 / Create branch: `git checkout -b feature/YourFeature`
-3. 提交更改 / Commit: `git commit -m "Add YourFeature"`
-4. 推送分支 / Push: `git push origin feature/YourFeature`
-5. 发起 PR / Open a Pull Request
-
-### 要求 / Guidelines
-- 使用 TypeScript / Use TypeScript
-- 遵循 ESLint / Prettier / Follow ESLint & Prettier
-- 为功能添加测试 / Add tests for features
-- 保持代码清晰可维护 / Keep code clean and maintainable
-
 
 ---
 
