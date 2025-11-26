@@ -106,8 +106,6 @@ QuoteCraft/
 - 为功能添加测试 / Add tests for features
 - 保持代码清晰可维护 / Keep code clean and maintainable
 
-## 许可证 / License
-- MIT License，详见 / See [LICENSE](LICENSE)
 
 ---
 
