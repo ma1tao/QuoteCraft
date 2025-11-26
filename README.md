@@ -1,6 +1,15 @@
 # QuoteCraft
 
+
 > 中文 / English
+
+## 示例预览 / Preview
+- Markdown：`![界面预览 / Preview](./assets/preview.png)`
+- HTML：
+  <picture>
+    <source type="image/png" srcset="./assets/preview.png">
+    <img src="./assets/preview.png" alt="界面预览 / Preview" width="800">
+  </picture>
 
 ## 项目概述 / Overview
 - 中文：QuoteCraft 是一个简洁高效的文字卡片创作工具，帮助你快速生成适合社交媒体、博客、演示等场景的精美文字卡片。提供多主题、字体、背景与布局选项。
