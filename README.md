@@ -4,8 +4,6 @@
 > 中文 / English
 
 ## 示例预览 / Preview
-- Markdown：`![界面预览 / Preview](./assets/preview.png)`
-- HTML：
   <picture>
     <source type="image/png" srcset="./assets/preview.png">
     <img src="./assets/preview.png" alt="界面预览 / Preview" width="800">
