@@ -3,6 +3,7 @@ import { Download, Wand2, Image as ImageIcon, RefreshCw, Type, Palette, AlignLef
 import * as htmlToImage from 'html-to-image';
 import { CardPreview } from './components/CardPreview';
 import LanguageSwitcher from './components/LanguageSwitcher';
+import { DateStyleSelector } from './components/DateStyleSelector';
 import { CardConfig, FontType, AspectRatio, ThemeType, DateFormat } from './types';
  
 import { useTranslation } from 'react-i18next';
@@ -391,21 +392,11 @@ export default function App() {
                     />
                     <label htmlFor="showDate" className="text-sm text-zinc-400">{t('author.includeDate')}</label>
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">{t('author.dateStyle')}</label>
-                    <select
-                      disabled={!config.showDate}
-                      value={config.dateFormat}
-                      onChange={(e) => setConfig(prev => ({ ...prev, dateFormat: e.target.value as any }))}
-                      className={`w-full bg-black/40 border border-white/10 rounded-xl p-3 text-white transition-all ${!config.showDate ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    >
-                      <option value={DateFormat.ISO_YYYY_MM_DD}>{t('author.dateStyle_iso')}</option>
-                      <option value={DateFormat.MM_DD_YYYY}>{t('author.dateStyle_mdy')}</option>
-                      <option value={DateFormat.DD_MM_YYYY}>{t('author.dateStyle_dmy')}</option>
-                      <option value={DateFormat.CN_YYYY_MM_DD}>{t('author.dateStyle_cn')}</option>
-                      <option value={DateFormat.CN_WEEKDAY_YYYY_MM_DD}>{t('author.dateStyle_cnWeekday')}</option>
-                    </select>
-                  </div>
+                  <DateStyleSelector
+                    value={config.dateFormat}
+                    onChange={(val) => setConfig(prev => ({ ...prev, dateFormat: val }))}
+                    disabled={!config.showDate}
+                  />
                 </div>
               </div>
             )}
