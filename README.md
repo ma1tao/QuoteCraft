@@ -13,8 +13,6 @@
 
 - [QuoteCraft 体验地址](https://quote-craft-eight.vercel.app/)
 
-## 示例预览 / Preview
-
 ## 项目概述 / Overview
 - 中文：QuoteCraft 是一个简洁高效的文字卡片创作工具，帮助你快速生成适合社交媒体、博客、演示等场景的精美文字卡片。提供多主题、字体、背景与布局选项。
 - English: QuoteCraft is a clean and efficient quote card creator for social media, blogs, and presentations. It offers themes, fonts, backgrounds, and layout options.
