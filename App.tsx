@@ -3,7 +3,7 @@ import { Download, Wand2, Image as ImageIcon, RefreshCw, Type, Palette, AlignLef
 import * as htmlToImage from 'html-to-image';
 import { CardPreview } from './components/CardPreview';
 import LanguageSwitcher from './components/LanguageSwitcher';
-import { WeiboIcon, XiaohongshuIcon, WechatIcon } from './components/SocialIcons';
+
 import { DateStyleSelector } from './components/DateStyleSelector';
 import { CardConfig, FontType, AspectRatio, ThemeType, DateFormat } from './types';
  
@@ -289,7 +289,6 @@ export default function App() {
                           }}
                           className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 rounded-md transition-colors"
                         >
-                          <WeiboIcon size={14} className="text-red-400" />
                           <span>{t('nav.weibo')}</span>
                         </button>
                         <button 
@@ -304,7 +303,6 @@ export default function App() {
                           }}
                           className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 rounded-md transition-colors"
                         >
-                          <XiaohongshuIcon size={14} className="text-red-400" />
                           <span>{t('nav.xiaohongshu')}</span>
                         </button>
                         <button 
@@ -319,7 +317,6 @@ export default function App() {
                           }}
                           className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 rounded-md transition-colors"
                         >
-                          <WechatIcon size={14} className="text-green-400" />
                           <span>{t('nav.wechat_moments')}</span>
                         </button>
                       </>
