@@ -3,6 +3,7 @@ import { Download, Wand2, Image as ImageIcon, RefreshCw, Type, Palette, AlignLef
 import * as htmlToImage from 'html-to-image';
 import { CardPreview } from './components/CardPreview';
 import LanguageSwitcher from './components/LanguageSwitcher';
+import { WeiboIcon, XiaohongshuIcon, WechatIcon } from './components/SocialIcons';
 import { DateStyleSelector } from './components/DateStyleSelector';
 import { CardConfig, FontType, AspectRatio, ThemeType, DateFormat } from './types';
  
@@ -40,7 +41,7 @@ const COLOR_PRESETS = [
 ];
 
 export default function App() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [config, setConfig] = useState<CardConfig>(DEFAULT_CONFIG);
   const cardRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState<'style' | 'text' | 'bg'>('text');
@@ -278,33 +279,81 @@ export default function App() {
                     >
                       <span>{t('nav.copy')}</span>
                     </button>
-                    <button 
-                      onClick={() => {
-                        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=Check out my quote card created with QuoteCraft!`, '_blank');
-                        setShowShareOptions(false);
-                      }}
-                      className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 rounded-md transition-colors"
-                    >
-                      <span>{t('nav.twitter')}</span>
-                    </button>
-                    <button 
-                      onClick={() => {
-                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
-                        setShowShareOptions(false);
-                      }}
-                      className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 rounded-md transition-colors"
-                    >
-                      <span>{t('nav.facebook')}</span>
-                    </button>
-                    <button 
-                      onClick={() => {
-                        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank');
-                        setShowShareOptions(false);
-                      }}
-                      className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 rounded-md transition-colors"
-                    >
-                      <span>{t('nav.linkedin')}</span>
-                    </button>
+                    {i18n.language.startsWith('zh') ? (
+                      <>
+                        <button 
+                          onClick={() => {
+                            const shareUrl = `https://service.weibo.com/share/share.php?url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent('分享我的 QuoteCraft 卡片')}`;
+                            window.open(shareUrl, '_blank');
+                            setShowShareOptions(false);
+                          }}
+                          className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 rounded-md transition-colors"
+                        >
+                          <WeiboIcon size={14} className="text-red-400" />
+                          <span>{t('nav.weibo')}</span>
+                        </button>
+                        <button 
+                          onClick={async () => {
+                            try {
+                              await navigator.clipboard.writeText(window.location.href);
+                              handleError(t('nav.copy_xiaohongshu'));
+                              setShowShareOptions(false);
+                            } catch (err) {
+                              handleError(t('errors.copy'));
+                            }
+                          }}
+                          className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 rounded-md transition-colors"
+                        >
+                          <XiaohongshuIcon size={14} className="text-red-400" />
+                          <span>{t('nav.xiaohongshu')}</span>
+                        </button>
+                        <button 
+                          onClick={async () => {
+                            try {
+                              await navigator.clipboard.writeText(window.location.href);
+                              handleError(t('nav.copy_wechat'));
+                              setShowShareOptions(false);
+                            } catch (err) {
+                              handleError(t('errors.copy'));
+                            }
+                          }}
+                          className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 rounded-md transition-colors"
+                        >
+                          <WechatIcon size={14} className="text-green-400" />
+                          <span>{t('nav.wechat_moments')}</span>
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button 
+                          onClick={() => {
+                            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=Check out my quote card created with QuoteCraft!`, '_blank');
+                            setShowShareOptions(false);
+                          }}
+                          className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 rounded-md transition-colors"
+                        >
+                          <span>{t('nav.twitter')}</span>
+                        </button>
+                        <button 
+                          onClick={() => {
+                            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
+                            setShowShareOptions(false);
+                          }}
+                          className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 rounded-md transition-colors"
+                        >
+                          <span>{t('nav.facebook')}</span>
+                        </button>
+                        <button 
+                          onClick={() => {
+                            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank');
+                            setShowShareOptions(false);
+                          }}
+                          className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 rounded-md transition-colors"
+                        >
+                          <span>{t('nav.linkedin')}</span>
+                        </button>
+                      </>
+                    )}
                   </div>
                 </div>
               )}
