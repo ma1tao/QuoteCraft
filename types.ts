@@ -15,6 +15,14 @@ export enum AspectRatio {
   LANDSCAPE = 'aspect-[16/9]', // 16:9
 }
 
+export enum DateFormat {
+  ISO_YYYY_MM_DD = 'iso_yyyy_mm_dd',
+  MM_DD_YYYY = 'mm_dd_yyyy',
+  DD_MM_YYYY = 'dd_mm_yyyy',
+  CN_YYYY_MM_DD = 'cn_yyyy_mm_dd',
+  CN_WEEKDAY_YYYY_MM_DD = 'cn_weekday_yyyy_mm_dd',
+}
+
 export enum ThemeType {
   MINIMAL_DARK = 'minimal-dark',
   MINIMAL_LIGHT = 'minimal-light',
@@ -37,6 +45,7 @@ export interface CardConfig {
   showDate: boolean;
   textColor: string;
   overlayOpacity: number; // 0 to 1
+  dateFormat: DateFormat;
 }
 
 export interface PolishResult {

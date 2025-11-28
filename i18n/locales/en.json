@@ -6,7 +6,7 @@
   "tabs": {"text": "Text", "design": "Design", "background": "Background"},
   "editor": {"message": "Message", "placeholder": "What's on your mind?",
     "clear": "Clear"},
-  "author": {"label": "Author / Attribution", "placeholder": "e.g. Anonymous", "includeDate": "Include Date"},
+  "author": {"label": "Author / Attribution", "placeholder": "e.g. Anonymous", "includeDate": "Include Date", "dateStyle": "Date Style", "dateStyle_iso": "YYYY-MM-DD", "dateStyle_mdy": "MM/DD/YYYY", "dateStyle_dmy": "DD/MM/YYYY", "dateStyle_cn": "YYYY年MM月DD日", "dateStyle_cnWeekday": "Weekday, YYYY-MM-DD"},
   "design": {"saved": "Saved Configs", "base": "Base Theme", "font": "Font Family",
     "color": "Text Color", "size": "Text Size", "ratio": "Canvas Ratio",
     "ratio_1_1": "1:1", "ratio_3_4": "3:4", "ratio_9_16": "9:16", "ratio_16_9": "16:9"},

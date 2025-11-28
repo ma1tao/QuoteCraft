@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { CardConfig, ThemeType, AspectRatio, FontType } from '../types';
+import { CardConfig, ThemeType, AspectRatio, FontType, DateFormat } from '../types';
 import { clsx } from 'clsx';
 import { useTranslation } from 'react-i18next';
 
@@ -34,8 +34,32 @@ const getThemeStyles = (theme: ThemeType, customBg?: string) => {
   }
 };
 
+export function formatDate(date: Date, format: DateFormat, lang: string) {
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+  const weekdaysZh = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+  const weekdaysEn = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const weekdayZh = weekdaysZh[date.getDay()];
+  const weekdayEn = weekdaysEn[date.getDay()];
+  switch (format) {
+    case DateFormat.ISO_YYYY_MM_DD:
+      return `${yyyy}-${mm}-${dd}`;
+    case DateFormat.MM_DD_YYYY:
+      return `${mm}/${dd}/${yyyy}`;
+    case DateFormat.DD_MM_YYYY:
+      return `${dd}/${mm}/${yyyy}`;
+    case DateFormat.CN_YYYY_MM_DD:
+      return `${yyyy}年${mm}月${dd}日`;
+    case DateFormat.CN_WEEKDAY_YYYY_MM_DD:
+      return lang === 'zh' ? `${weekdayZh}，${yyyy}年${mm}月${dd}日` : `${weekdayEn}, ${yyyy}-${mm}-${dd}`;
+    default:
+      return `${yyyy}-${mm}-${dd}`;
+  }
+}
+
 export const CardPreview = forwardRef<HTMLDivElement, CardPreviewProps>(({ config, scale = 1 }, ref) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const themeStyles = getThemeStyles(config.theme, config.customBackgroundImage);
   
   // Dynamic font sizing based on config.fontSize (1-10)
@@ -91,7 +115,7 @@ export const CardPreview = forwardRef<HTMLDivElement, CardPreviewProps>(({ confi
             config.alignment === 'text-center' ? 'items-center' : config.alignment === 'text-right' ? 'items-end' : 'items-start',
           )}>
             {config.author && <span className="border-t-2 border-current pt-2 inline-block">{config.author}</span>}
-            {config.showDate && <span className="text-[0.6rem] opacity-60">{new Date().toLocaleDateString()}</span>}
+            {config.showDate && <span className="text-[0.6rem] opacity-60">{formatDate(new Date(), config.dateFormat, i18n.language)}</span>}
           </div>
         )}
         
