@@ -11,7 +11,7 @@
 
 ## 体验地址 / Live Demo
 
-- [QuoteCraft 体验地址](https://quote-craft.vercel.app/)
+- [QuoteCraft 体验地址](https://quote-craft-eight.vercel.app/)
 
 ## 示例预览 / Preview
 
