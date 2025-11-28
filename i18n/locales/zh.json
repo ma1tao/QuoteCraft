@@ -12,7 +12,7 @@
     "ratio_1_1": "1:1", "ratio_3_4": "3:4", "ratio_9_16": "9:16", "ratio_16_9": "16:9"},
   "background": {"overlay": "图片叠加/暗化", "custom": "自定义背景", "upload": "点击上传图片",
     "presets": "图库预设"},
-  "preview": {"mode": "预览模式 • {{ratio}}", "empty": "开始输入以创建你的卡片..."},
+  "preview": {"empty": "开始输入以创建你的卡片..."},
   "toast": {"saved": "配置保存成功！", "loaded": "配置加载成功！", "linkCopied": "链接已复制！"},
   "errors": {"save": "保存失败，请重试。", "load": "加载失败，请重试。",
     "delete": "删除失败，请重试。", "polish": "润色失败，请检查 API Key 后重试。",

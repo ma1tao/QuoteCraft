@@ -595,9 +595,7 @@ export default function App() {
                 <CardPreview ref={cardRef} config={config} />
             </div>
 
-             <div className="absolute bottom-6 text-zinc-500 text-xs text-center w-full">
-                {t('preview.mode', { ratio: config.ratio.replace('aspect-', '').replace('[', '').replace(']', '').replace('/', ':') })}
-             </div>
+
         </div>
       </main>
     </div>

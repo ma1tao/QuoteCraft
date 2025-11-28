@@ -12,7 +12,7 @@
     "ratio_1_1": "1:1", "ratio_3_4": "3:4", "ratio_9_16": "9:16", "ratio_16_9": "16:9"},
   "background": {"overlay": "Image Overlay / Dimming", "custom": "Custom Background", "upload": "Click to Upload Image",
     "presets": "Gallery Presets"},
-  "preview": {"mode": "Preview Mode • {{ratio}}", "empty": "Start typing to create your card..."},
+  "preview": {"empty": "Start typing to create your card..."},
   "toast": {"saved": "Config saved successfully!", "loaded": "Config loaded successfully!", "linkCopied": "Link copied to clipboard!"},
   "errors": {"save": "Failed to save config. Please try again.", "load": "Failed to load config. Please try again.",
     "delete": "Failed to delete config. Please try again.", "polish": "Failed to polish text. Please check your API key and try again.",
